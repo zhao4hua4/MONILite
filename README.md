@@ -1,6 +1,6 @@
 # MONILite
 
-MONILite is a lightweight system monitoring daemon for Linux that collects CPU, memory, disk, and optional NVIDIA GPU metrics, retains tiered history in SQLite (5-second, 1-minute, and 5-minute buckets), and serves both a JSON API and a bundled dashboard over HTTP.
+MONILite is a lightweight system monitoring daemon for Linux that collects CPU, memory, disk, and optional NVIDIA GPU metrics, retains tiered history in SQLite (5-second, 1-minute, and 5-minute buckets), and serves both a JSON API and a bundled dashboard over HTTP. Released under the [MIT License](LICENSE).
 
 ## Quickstart
 
@@ -59,6 +59,8 @@ The built-in HTTP server exposes:
 
 Additional history endpoints (`/api/v1/metrics`, `/api/v1/history`, etc.) will come online once the SQLite storage layer lands.
 
+See `docs/http-api.md` for full payload samples.
+
 ## Architecture
 
 - **Collector daemon:** samples CPU, memory, and disk usage via `psutil` every few seconds. If NVML bindings are available, GPU utilization, memory, temperature, and power draw are collected in the same cadence.
@@ -66,6 +68,8 @@ Additional history endpoints (`/api/v1/metrics`, `/api/v1/history`, etc.) will c
 - **HTTP Service:** a small Flask app serves `/api/v1/live` plus a bundled HTML view that auto-refreshes using the same endpoint.
 - **History API/UI:** `/api/v1/history` powers the built-in charts (1h/24h/7d windows) rendered via Canvas elements under the live metrics grid.
 - **CLI:** `monilite serve` wires together the collector thread, history store, and HTTP server; the dashboard drives runtime interval updates via the `/api/v1/settings` endpoint.
+
+More detail: `docs/architecture.md`.
 
 ## FAQ
 
