@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=67", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "monilite"
+version = "0.1.0"
+description = "Lightweight system monitoring daemon and dashboard for Linux"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "MONILite Authors" }
+]
+license = { text = "MIT" }
+keywords = ["monitoring", "system", "sqlite", "dashboard"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Operating System :: POSIX :: Linux",
+  "Topic :: System :: Monitoring",
+]
+dependencies = [
+  "psutil>=5.9",
+  "Flask>=3.0",
+  "nvidia-ml-py>=12.535.108",
+]
+
+[project.optional-dependencies]
+nvml = ["nvidia-ml-py>=12.535.108"]
+
+[project.scripts]
+monilite = "monilite.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.monilite]
+history_default = true
+sample_interval_seconds = 5
