@@ -59,7 +59,7 @@ The built-in HTTP server exposes:
 
 Additional history endpoints (`/api/v1/metrics`, `/api/v1/history`, etc.) will come online once the SQLite storage layer lands.
 
-See `docs/http-api.md` for full payload samples.
+See [`docs/http-api.md`](/docs/http-api.md) for full payload samples.
 
 ## Architecture
 
@@ -69,7 +69,7 @@ See `docs/http-api.md` for full payload samples.
 - **History API/UI:** `/api/v1/history` powers the built-in charts (1h/24h/7d windows) rendered via Canvas elements under the live metrics grid.
 - **CLI:** `monilite serve` wires together the collector thread, history store, and HTTP server; the dashboard drives runtime interval updates via the `/api/v1/settings` endpoint.
 
-More detail: `docs/architecture.md`.
+More detail: [`docs/architecture.md`](/docs/architecture.md).
 
 ## FAQ
 
