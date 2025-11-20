@@ -11,7 +11,7 @@ pip install monilite
 monilite serve
 # Visit http://localhost:8000 for the dashboard, history charts, and JSON API
 ```
-
+[A user-friendly guide](https://medium.com/@zhao4hua4/monitor-your-linux-server-over-http-with-monilite-ultra-lightweight-pip-installable-c55e6f4be6d8)
 ## Installation
 
 - Python 3.10 or newer is required.
